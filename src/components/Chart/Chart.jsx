@@ -3,15 +3,10 @@ import {fetchDailyData} from '../../api';
 import {Line, Bar} from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
-
-
-
-
-
 export default function Chart({data:{confirmed,deaths,recovered},country}) {
     const [dailyData, setDailyData] = useState([]);
 
-    const fetchAndSetDD = async () => {
+    const fetchAndSetDD = async () => { //fetches and sets Local State with Daily Data
         setDailyData(await fetchDailyData());
     }
 
@@ -42,7 +37,6 @@ export default function Chart({data:{confirmed,deaths,recovered},country}) {
         : null
     )
     
-    console.log(confirmed,recovered,deaths);
     const barChart = (
         confirmed ? (
             <Bar
